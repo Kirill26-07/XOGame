@@ -4,13 +4,13 @@ import controllers.Game;
 
 public class ConsoleView {
 
-    private final Game game;
+    protected final Game game;
 
     public ConsoleView(final Game game) {
         this.game = game;
     }
 
-    public void showGameName(Game game){
+    public void showGameName(){
         System.out.println(game.getGameName());
 
     }
