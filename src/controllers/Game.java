@@ -3,24 +3,19 @@ import model.Player;
 
 public class Game {
 
-    private static final String GAME_NAME = "XO";
+    private static final String GAME_NAME = "XO-GAME";
+    private static final String FIGURE_X = "X";
+    private static final String FIGURE_O = "O";
 
-    private Player[] players;
-
-    public String getGameName() {
+    public static String getGameName() {
         return GAME_NAME;
     }
 
-    public Player[] getPlayers(){
-        return players;
+    public static String getFigureX() {
+        return FIGURE_X;
     }
 
-    public Player currentPlayer(){
-        return null;
-
-    }
-
-    public boolean move(final int x, final int y){
-        return false;
+    public static String getFigureO() {
+        return FIGURE_O;
     }
 }

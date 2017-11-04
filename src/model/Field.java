@@ -2,34 +2,16 @@ package model;
 
 public class Field {
 
-    public String f00;
-
-    public String f01;
-
-    public String f02;
-
-    public String f10;
-
-    public String f11;
-
-    public String f12;
-
-    public String f20;
-
-    public String f21;
-
-    public String f22;
+    private static String[][] field = new String[3][3];;
 
 
-    public int getSize(){
-        return 3;
+    private void fieldWithCoordinates(){
+        Point point = new Point();
+
+        field = point.createCoordinates(field);
     }
 
-    public String getFigure(Point point){
-        return null;
-    }
-
-    public void setFigure(Point point, String figure){
-
+    public static String[][] getField() {
+        return field;
     }
 }
