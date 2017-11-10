@@ -1,8 +1,14 @@
+/** Класс для заполнения созданого поля координатами: 00 01 02
+*                                                     10 11 12
+ *                                                    20 21 22
+**/
 package model;
 
 public class Point {
 
-    public String[][] createCoordinates(String[][] field){
+    // Заполняем поле точками координат
+
+    public String[][] createCoordinates(final String[][] field){
 
         int counter = 0;
 

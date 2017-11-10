@@ -1,21 +1,29 @@
+/** Класс реализует управление игровым процессом
+ */
+
 package controllers;
-import model.Player;
+import model.Field;
+import model.Figure;
+import view.ConsoleView;
 
 public class Game {
 
-    private static final String GAME_NAME = "XO-GAME";
-    private static final String FIGURE_X = "X";
-    private static final String FIGURE_O = "O";
+    ConsoleView consoleView = new ConsoleView();
+    MoveController moveController = new MoveController();
 
-    public static String getGameName() {
-        return GAME_NAME;
+    public void startGame(){
+
+        consoleView.printGameName();
+        consoleView.createPlayers();
+        letsPlay();
     }
 
-    public static String getFigureX() {
-        return FIGURE_X;
+    private void letsPlay(){
+        Field.fieldWithCoordinates();
+        moveController.setFigureOnField(Figure.X.toString());
+
+
     }
 
-    public static String getFigureO() {
-        return FIGURE_O;
-    }
+
 }
