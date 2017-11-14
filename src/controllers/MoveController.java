@@ -4,15 +4,15 @@
  *  если поле занято - выводится сообщение и предлагается установить фигуру заново.
  *  После этого вызывается проверка победителя.
  **/
-
 package controllers;
+
+import model.Board;
 import model.Field;
 import model.Figure;
 import view.ConsoleView;
-
 import java.util.Scanner;
 
-public class MoveController {
+class MoveController {
 
     private static Scanner scanner = new Scanner(System.in);
     private static WinnerController winnerController = new WinnerController();
@@ -20,22 +20,23 @@ public class MoveController {
 
     // Принимает поле с координатами и устанавливает в свободную ячейку фигуру
 
-    public static void setFigureOnField(final String figure){
+    static void setFigureOnField(final String figure){
 
-        ConsoleView.currentPlayerStep(figure);
-        ConsoleView.needToCoordinates();
+        ConsoleView.currentPlayerStep(figure);                   // Выводит текущего игрока
+        ConsoleView.needToCoordinates();                         // Сообщение о запросе координат от игрока
 
         int i = scanner.nextInt();
         int j = scanner.nextInt();
 
-        if(fieldFreeOrNot(field, i, j)){
+        if(fieldFreeOrNot(field, i, j)){                        // Проверка свободной ячейки
             field.setField(i, j, figure);
+            Board.printBoard();
         }
         else {
             ConsoleView.fieldBusye();
         }
 
-        winnerController.getWinner();
+        winnerController.getWinner();                           // Проверка наличая победителя
     }
 
 
@@ -44,7 +45,7 @@ public class MoveController {
     private static boolean fieldFreeOrNot(Field field, int i, int j){
         String[][] controlField = field.getField();
 
-        if(controlField[i][j] != Figure.X.toString() || controlField[i][j] != Figure.O.toString()) {
+        if(controlField[i][j] != Figure.X.toString() && controlField[i][j] != Figure.O.toString()) {
             return true;
         }
         else {

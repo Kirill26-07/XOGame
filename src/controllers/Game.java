@@ -2,14 +2,14 @@
  */
 
 package controllers;
+import model.Board;
 import model.Field;
-import model.Figure;
 import view.ConsoleView;
 
 public class Game {
 
-    ConsoleView consoleView = new ConsoleView();
-    MoveController moveController = new MoveController();
+    private Board board = new Board();
+   private ConsoleView consoleView = new ConsoleView();
 
     public void startGame(){
 
@@ -19,10 +19,10 @@ public class Game {
     }
 
     private void letsPlay(){
+
         Field.fieldWithCoordinates();
-        moveController.setFigureOnField(Figure.X.toString());
-
-
+        board.printBoard();
+        CurrentMoveController.switchPlayers();
     }
 
 

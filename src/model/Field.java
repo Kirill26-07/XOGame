@@ -5,7 +5,7 @@ public class Field {
 
     // Создаем игровое поле
 
-    private static String[][] field = new String[3][3];;
+    private static String[][] field = new String[3][3];
 
     // Добовляем координаты
 
@@ -21,6 +21,8 @@ public class Field {
     }
 
     public void setField(final int i, final int j, final String figure){
-        field[i][j] = figure;
+        field[i][j] = " " + figure;
     }
+
+
 }

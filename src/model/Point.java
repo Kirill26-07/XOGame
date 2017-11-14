@@ -4,21 +4,18 @@
 **/
 package model;
 
-public class Point {
+class Point {
 
     // Заполняем поле точками координат
 
     public String[][] createCoordinates(final String[][] field){
 
-        int counter = 0;
-
         for(int i = 0; i < field.length; i ++){
 
             for(int j = 0; j < field.length; j++){
 
-                field[i][j] = Integer.toString(counter);
+                field[i][j] = Integer.toString(i) + Integer.toString(j);
 
-                counter++;
             }
         }
         return field;
