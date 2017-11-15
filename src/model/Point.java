@@ -8,7 +8,7 @@ class Point {
 
     // Заполняем поле точками координат
 
-    public String[][] createCoordinates(final String[][] field){
+    String[][] createCoordinates(final String[][] field){
 
         for(int i = 0; i < field.length; i ++){
 

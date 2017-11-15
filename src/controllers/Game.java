@@ -1,4 +1,4 @@
-/** Класс реализует управление игровым процессом
+/** Класс реализует первоначальную конфигурацию игры
  */
 
 package controllers;
@@ -8,7 +8,7 @@ import view.ConsoleView;
 
 public class Game {
 
-    private Board board = new Board();
+   // Первоначальная конфигурация игры
    private ConsoleView consoleView = new ConsoleView();
 
     public void startGame(){
@@ -21,7 +21,7 @@ public class Game {
     private void letsPlay(){
 
         Field.fieldWithCoordinates();
-        board.printBoard();
+        Board.printBoard();
         CurrentMoveController.switchPlayers();
     }
 

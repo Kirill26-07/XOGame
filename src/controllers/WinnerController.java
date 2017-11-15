@@ -2,7 +2,6 @@
  * Класс проверяет победителя после каждого хода, если победитель не найден - игра продолжается, если найден
  * - объявляем победителя и заканчиваем игру!
  */
-
 package controllers;
 import model.Field;
 import model.Figure;
@@ -11,12 +10,13 @@ import view.ConsoleView;
 
 
 class WinnerController {
-        
+
+    // Проверяем победителя путем проверки полей с фигурками, если победитель найден - выводим, нет - продолжаем
     void getWinner(){
 
         String[][] winnerControlField = Field.getField();
         
-        if(winnerControlField[0][0].equals(" " + Figure.X.toString()) && 
+        if(winnerControlField[0][0].equals(" " + Figure.X.toString()) &&
                 winnerControlField[1][0].equals(" " + Figure.X.toString()) &&
                 winnerControlField[2][0].equals(" " + Figure.X.toString())){
 
