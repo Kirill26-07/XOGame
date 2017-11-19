@@ -10,6 +10,7 @@ import model.Board;
 import model.Field;
 import model.Figure;
 import view.ConsoleView;
+import java.util.Objects;
 import java.util.Scanner;
 
 class MoveController {
@@ -19,19 +20,21 @@ class MoveController {
     private static Field field = new Field();
 
     // Принимает поле с координатами и устанавливает в свободную ячейку фигуру
-    static void setFigureOnField(final String figure){
+    static void setFigureOnField(final String figure) {
 
         ConsoleView.currentPlayerStep(figure);                   // Выводит текущего игрока
         ConsoleView.needToCoordinates();                         // Сообщение о запросе координат от игрока
 
-        int i = scanner.nextInt();
-        int j = scanner.nextInt();
+        char[] userInput = scanner.nextLine().toCharArray();
 
-        if(fieldFreeOrNot(field, i, j)){                        // Проверка свободной ячейки
+        int i = Character.getNumericValue(userInput[0]);
+        int j = Character.getNumericValue(userInput[1]);
+
+        if(fieldFreeOrNot(i, j)){                               // Проверка свободной ячейки
             field.setField(i, j, figure);
             Board.printBoard();
         }
-        else {
+        else{
             ConsoleView.fieldBusye();
         }
 
@@ -39,14 +42,14 @@ class MoveController {
     }
 
     // Проверяет свободна ли ячейка для установки фигуры
-    private static boolean fieldFreeOrNot(Field field, int i, int j){
+    private static boolean fieldFreeOrNot(int i, int j){
 
         String[][] controlField = Field.getField();
 
-        if(controlField[i][j] != Figure.X.toString() && controlField[i][j] != Figure.O.toString()) {
+        if(!Objects.equals(controlField[i][j], Figure.X.toString()) && !Objects.equals(controlField[i][j], Figure.O.toString())){
             return true;
         }
-        else {
+        else{
             return false;
         }
     }
