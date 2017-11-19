@@ -7,7 +7,7 @@ import model.Figure;
 
 class CurrentMoveController {
 
-    private static String currentFigure = "X";
+    private static String currentFigure = "X";     // Первый игрок при запуске игры
 
     // Переключение игроков
     static void switchPlayers(){

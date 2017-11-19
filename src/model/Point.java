@@ -15,10 +15,8 @@ class Point {
             for(int j = 0; j < field.length; j++){
 
                 field[i][j] = Integer.toString(i) + Integer.toString(j);
-
             }
         }
         return field;
     }
-
 }

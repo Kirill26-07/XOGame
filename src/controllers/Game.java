@@ -6,14 +6,17 @@ import model.Board;
 import model.Field;
 import view.ConsoleView;
 
-public class Game {
+public class Game{
 
-   // Первоначальная конфигурация игры
-   private ConsoleView consoleView = new ConsoleView();
+    private static final String GAME_NAME = "XO-GAME";
+
+    // Первоначальная конфигурация игры
+
+    private ConsoleView consoleView = new ConsoleView();
 
     public void startGame(){
 
-        consoleView.printGameName();
+        consoleView.printGameName(GAME_NAME);
         consoleView.createPlayers();
         letsPlay();
     }
@@ -24,6 +27,4 @@ public class Game {
         Board.printBoard();
         CurrentMoveController.switchPlayers();
     }
-
-
 }

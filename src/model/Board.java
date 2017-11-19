@@ -1,18 +1,9 @@
 /**
- * Хранит название игры и выводит игровую доску с фигурками и координатами в консоль
+ * Выводит игровую доску с фигурками и координатами в консоль
  */
 package model;
 
 public class Board {
-
-
-    // Храним название игры
-    private static final String GAME_NAME = "XO-GAME";
-
-    // Отдаем название игры
-    public static String getGameName() {
-        return GAME_NAME;
-    }
 
     // Принтим доску с фигурками на экран
     public static void printBoard(){

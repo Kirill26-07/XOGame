@@ -4,15 +4,23 @@
 package model;
 
 
+import java.util.Scanner;
+
 public class Player {
 
     private static String PLAYER_1;
     private static String PLAYER_2;
 
-    // Создаем игроков
-    public Player(final String player_1, final String player_2){
-        PLAYER_1 = player_1;
-        PLAYER_2 = player_2;
+    private static Scanner scanner = new Scanner(System.in);
+
+    public static void setPlayer1() {
+
+        PLAYER_1 = scanner.nextLine().trim();
+    }
+
+    public static void setPlayer2() {
+
+        PLAYER_2 = scanner.nextLine().trim();
     }
 
     // Возвращаем 1 игрока

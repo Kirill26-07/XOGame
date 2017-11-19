@@ -1,39 +1,32 @@
 /** Класс предназначен для вывода игровой информации на консоль игрокам
  */
-
 package view;
 
-import model.Board;
 import model.Player;
-
-import java.util.Scanner;
-
 
 public class ConsoleView {
 
     // Выводим название игры
-    public void printGameName(){
-        System.out.println("Hello! Welcome to our game - " + Board.getGameName());
+    public void printGameName(String gameName){
 
+        System.out.println("Hello! Welcome to our game - " + gameName);
     }
 
     // Создаем игроков и выводим их на экран
     public void createPlayers(){
-        Scanner scanner = new Scanner(System.in);
+
+        StringBuilder stringBuilder = new StringBuilder();
 
         System.out.println("Input first player name - figure 'X': ");
-        String player_1 = scanner.nextLine().trim();
+        Player.setPlayer1();
 
         System.out.println("Input second player name - figure 'O': ");
-        String player_2 = scanner.nextLine().trim();
+        Player.setPlayer2();
 
-        scanner.close();
-
-        new Player(player_1, player_2);
-
-        System.out.println("Player 1: " + Player.getPlayer1());
-        System.out.println("Player 2: " + Player.getPlayer2());
-
+        System.out.println(stringBuilder.append("Player 1: ")
+                                        .append(Player.getPlayer1())
+                                        .append("\nPlayer 2: ")
+                                        .append(Player.getPlayer2()));
     }
 
     // Вывод пользователя чей ход текущий
