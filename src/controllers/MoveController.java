@@ -10,7 +10,6 @@ import model.Board;
 import model.Field;
 import model.Figure;
 import view.ConsoleView;
-import java.util.Objects;
 import java.util.Scanner;
 
 class MoveController {
@@ -30,6 +29,7 @@ class MoveController {
         int i = Character.getNumericValue(userInput[0]);
         int j = Character.getNumericValue(userInput[1]);
 
+
         if(fieldFreeOrNot(i, j)){                               // Проверка свободной ячейки
             field.setField(i, j, figure);
             Board.printBoard();
@@ -46,7 +46,9 @@ class MoveController {
 
         String[][] controlField = Field.getField();
 
-        if(!Objects.equals(controlField[i][j], Figure.X.toString()) && !Objects.equals(controlField[i][j], Figure.O.toString())){
+        System.out.println(controlField[i][j]);
+
+        if(!controlField[i][j].trim().equals(Figure.X.toString()) && !controlField[i][j].trim().equals(Figure.O.toString())){
             return true;
         }
         else{

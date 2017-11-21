@@ -7,17 +7,17 @@ import model.Figure;
 
 class CurrentMoveController {
 
-    private static String currentFigure = "X";     // Первый игрок при запуске игры
+    private static String currentFigure = Figure.X.toString();     // Первый игрок при запуске игры
 
     // Переключение игроков
     static void switchPlayers(){
 
         if(currentFigure.equals(Figure.X.toString())){
-            currentFigure = "O";
+            currentFigure = Figure.O.toString();
             MoveController.setFigureOnField(Figure.X.toString());
         }
         else{
-            currentFigure = "X";
+            currentFigure = Figure.X.toString();
             MoveController.setFigureOnField(Figure.O.toString());
         }
     }
