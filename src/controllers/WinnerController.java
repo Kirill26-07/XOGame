@@ -18,36 +18,52 @@ class WinnerController {
 
         String[][] winnerControlField = Field.getField();
 
-        for (int i = 0; i < 3; i++){
+        // Проверка победителя по горизонтали и вертикали
+        for (int i = 0; i < 3; i++) {
 
             int horizontalO = 0;
             int horizontalX = 0;
+            int verticalX = 0;
+            int verticalO = 0;
 
-            for (int j = 0; j < 3; j++){
-                if(winnerControlField[i][j].trim().equals(Figure.X.toString())){
+            for (int j = 0; j < 3; j++) {
+                if (winnerControlField[i][j].trim().equals(Figure.X.toString())) {
                     horizontalX++;
-                    if(horizontalX == 3){
+                    if (horizontalX == 3) {
                         ConsoleView.printWinner(Player.getPlayer1());
                         haveWinner = true;
                         break;
                     }
                 }
-                if(winnerControlField[i][j].trim().equals(Figure.O.toString())){
+                if (winnerControlField[i][j].trim().equals(Figure.O.toString())) {
                     horizontalO++;
-                    if(horizontalO == 3){
+                    if (horizontalO == 3) {
                         ConsoleView.printWinner(Player.getPlayer2());
                         haveWinner = true;
                         break;
                     }
                 }
-
+                if (winnerControlField[j][i].trim().equals(Figure.X.toString())) {
+                    verticalX++;
+                    if (verticalX == 3) {
+                        ConsoleView.printWinner(Player.getPlayer1());
+                        haveWinner = true;
+                        break;
+                    }
+                }
+                if (winnerControlField[j][i].trim().equals(Figure.O.toString())) {
+                    verticalO++;
+                    if (verticalO == 3) {
+                        ConsoleView.printWinner(Player.getPlayer1());
+                        haveWinner = true;
+                        break;
+                    }
+                }
             }
         }
 
-        if(!haveWinner){
+        if (!haveWinner) {
             CurrentMoveController.switchPlayers();
         }
-
     }
-
 }
