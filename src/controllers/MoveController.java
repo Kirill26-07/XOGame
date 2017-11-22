@@ -18,6 +18,8 @@ class MoveController {
     private static WinnerController winnerController = new WinnerController();
     private static Field field = new Field();
 
+    private static int moveCounter = 0;
+
     // Принимает поле с координатами и устанавливает в свободную ячейку фигуру
     static void setFigureOnField(final String figure) {
 
@@ -30,15 +32,19 @@ class MoveController {
         int j = Character.getNumericValue(userInput[1]);
 
 
-        if(fieldFreeOrNot(i, j)){                               // Проверка свободной ячейки
+        if (fieldFreeOrNot(i, j)) {                               // Проверка свободной ячейки
             field.setField(i, j, figure);
             Board.printBoard();
-        }
-        else{
+        } else {
             ConsoleView.fieldBusye();
         }
 
-        winnerController.getWinner();                           // Проверка наличая победителя
+        if (moveCounter < 3) {                                      // Проверка наличая победителя после 3-го хода
+            moveCounter++;
+            CurrentMoveController.switchPlayers();
+        } else {
+            winnerController.getWinner();
+        }
     }
 
     // Проверяет свободна ли ячейка для установки фигуры
