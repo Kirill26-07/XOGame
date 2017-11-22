@@ -39,7 +39,7 @@ class MoveController {
             ConsoleView.fieldBusye();
         }
 
-        if (moveCounter < 3) {                                      // Проверка наличая победителя после 3-го хода
+        if (moveCounter < 4) {                                      // Проверка наличая победителя после 3-го хода
             moveCounter++;
             CurrentMoveController.switchPlayers();
         } else {
@@ -51,8 +51,6 @@ class MoveController {
     private static boolean fieldFreeOrNot(int i, int j){
 
         String[][] controlField = Field.getField();
-
-        System.out.println(controlField[i][j]);
 
         if(!controlField[i][j].trim().equals(Figure.X.toString()) && !controlField[i][j].trim().equals(Figure.O.toString())){
             return true;
