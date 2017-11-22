@@ -12,81 +12,39 @@ import view.ConsoleView;
 class WinnerController {
 
     // Проверяем победителя путем проверки полей с фигурками, если победитель найден - выводим, нет - продолжаем
-    void getWinner(){
+    void getWinner() {
+
+        boolean haveWinner = false;
 
         String[][] winnerControlField = Field.getField();
-        
-        if(winnerControlField[0][0].equals(" " + Figure.X.toString()) &&
-                winnerControlField[1][0].equals(" " + Figure.X.toString()) &&
-                winnerControlField[2][0].equals(" " + Figure.X.toString())){
 
-            ConsoleView.printWinner(Player.getPlayer1());
+        for (int i = 0; i < 3; i++){
+
+            int horizontalO = 0;
+            int horizontalX = 0;
+
+            for (int j = 0; j < 3; j++){
+                if(winnerControlField[i][j].trim().equals(Figure.X.toString())){
+                    horizontalX++;
+                    if(horizontalX == 3){
+                        ConsoleView.printWinner(Player.getPlayer1());
+                        haveWinner = true;
+                        break;
+                    }
+                }
+                if(winnerControlField[i][j].trim().equals(Figure.O.toString())){
+                    horizontalO++;
+                    if(horizontalO == 3){
+                        ConsoleView.printWinner(Player.getPlayer2());
+                        haveWinner = true;
+                        break;
+                    }
+                }
+
+            }
         }
-        else if(winnerControlField[0][1].equals(" " + Figure.X.toString()) &&
-                winnerControlField[1][1].equals(" " + Figure.X.toString()) &&
-                winnerControlField[2][1].equals(" " + Figure.X.toString())){
-            
-            ConsoleView.printWinner(Player.getPlayer1());
-        }
-        else if(winnerControlField[0][2].equals(" " + Figure.X.toString()) &&
-                winnerControlField[1][2].equals(" " + Figure.X.toString()) &&
-                winnerControlField[2][2].equals(" " + Figure.X.toString())){
 
-            ConsoleView.printWinner(Player.getPlayer1());
-        }
-        else if(winnerControlField[0][0].equals(" " + Figure.X.toString()) &&
-                winnerControlField[0][1].equals(" " + Figure.X.toString()) &&
-                winnerControlField[0][2].equals(" " + Figure.X.toString())){
-
-            ConsoleView.printWinner(Player.getPlayer1());
-        }else if(winnerControlField[1][0].equals(" " + Figure.X.toString()) &&
-                winnerControlField[1][1].equals(" " + Figure.X.toString()) &&
-                winnerControlField[1][2].equals(" " + Figure.X.toString())){
-
-            ConsoleView.printWinner(Player.getPlayer1());
-        }
-        else if(winnerControlField[2][0].equals(" " + Figure.X.toString()) &&
-                winnerControlField[2][1].equals(" " + Figure.X.toString()) &&
-                winnerControlField[2][2].equals(" " + Figure.X.toString())){
-
-            ConsoleView.printWinner(Player.getPlayer1());
-        }
-        else if(winnerControlField[0][0].equals(" " + Figure.O.toString()) &&
-                winnerControlField[1][0].equals(" " + Figure.O.toString()) &&
-                winnerControlField[2][0].equals(" " + Figure.O.toString())){
-
-            ConsoleView.printWinner(Player.getPlayer2());
-        }
-        else if(winnerControlField[0][1].equals(" " + Figure.O.toString()) &&
-                winnerControlField[1][1].equals(" " + Figure.O.toString()) &&
-                winnerControlField[2][1].equals(" " + Figure.O.toString())){
-
-            ConsoleView.printWinner(Player.getPlayer2());
-        }
-        else if(winnerControlField[0][2].equals(" " + Figure.O.toString()) &&
-                winnerControlField[1][2].equals(" " + Figure.O.toString()) &&
-                winnerControlField[2][2].equals(" " + Figure.O.toString())){
-
-            ConsoleView.printWinner(Player.getPlayer2());
-        }
-        else if(winnerControlField[0][0].equals(" " + Figure.O.toString()) &&
-                winnerControlField[0][1].equals(" " + Figure.O.toString()) &&
-                winnerControlField[0][2].equals(" " + Figure.O.toString())){
-
-            ConsoleView.printWinner(Player.getPlayer2());
-        }else if(winnerControlField[1][0].equals(" " + Figure.O.toString()) &&
-                winnerControlField[1][1].equals(" " + Figure.O.toString()) &&
-                winnerControlField[1][2].equals(" " + Figure.O.toString())){
-
-            ConsoleView.printWinner(Player.getPlayer2());
-        }
-        else if(winnerControlField[2][0].equals(" " + Figure.O.toString()) &&
-                winnerControlField[2][1].equals(" " + Figure.O.toString()) &&
-                winnerControlField[2][2].equals(" " + Figure.O.toString())){
-
-            ConsoleView.printWinner(Player.getPlayer2());
-        }
-        else {
+        if(!haveWinner){
             CurrentMoveController.switchPlayers();
         }
 
