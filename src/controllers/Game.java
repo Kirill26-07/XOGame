@@ -4,6 +4,7 @@
 package controllers;
 import model.Board;
 import model.Field;
+import model.Figure;
 import view.ConsoleView;
 
 public class Game{
@@ -25,6 +26,7 @@ public class Game{
 
         Field.fieldWithCoordinates();
         Board.printBoard();
-        CurrentMoveController.switchPlayers();
+        CurrentMoveController.setCurrentFigure(Figure.X.toString());
+        MoveController.setFigureOnField(Figure.X.toString());
     }
 }

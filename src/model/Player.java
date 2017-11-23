@@ -3,24 +3,23 @@
 */
 package model;
 
-
-import java.util.Scanner;
+import controllers.reader.ConsoleReader;
 
 public class Player {
 
     private static String PLAYER_1;
     private static String PLAYER_2;
 
-    private static Scanner scanner = new Scanner(System.in);
+    private static ConsoleReader consoleReader = new ConsoleReader();
 
     public static void setPlayer1() {
 
-        PLAYER_1 = scanner.nextLine().trim();
+        PLAYER_1 = consoleReader.reader().trim();
     }
 
     public static void setPlayer2() {
 
-        PLAYER_2 = scanner.nextLine().trim();
+        PLAYER_2 = consoleReader.reader().trim();
     }
 
     // Возвращаем 1 игрока

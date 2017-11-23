@@ -3,6 +3,7 @@
  * - объявляем победителя и заканчиваем игру!
  */
 package controllers;
+
 import model.Field;
 import model.Figure;
 import model.Player;
@@ -78,7 +79,7 @@ class WinnerController {
                 }
 
                 // Проверяем диоганали
-                if (winnerControlField[i][i].trim().equals(Figure.X.toString())) {
+                if (winnerControlField[j][j].trim().equals(Figure.X.toString())) {
                     diagonal_X++;
                     if (diagonal_X == WINNER_VALUE) {
                         ConsoleView.printWinner(Player.getPlayer1());
@@ -86,7 +87,7 @@ class WinnerController {
                         break;
                     }
                 }
-                if (winnerControlField[i][i].trim().equals(Figure.O.toString())) {
+                if (winnerControlField[j][j].trim().equals(Figure.O.toString())) {
                     diagonal_O++;
                     if (diagonal_O == WINNER_VALUE) {
                         ConsoleView.printWinner(Player.getPlayer2());
@@ -94,7 +95,7 @@ class WinnerController {
                         break;
                     }
                 }
-                if (winnerControlField[i][(i -2)*-1].trim().equals(Figure.X.toString())) {
+                if (winnerControlField[j][(j -2)*-1].trim().equals(Figure.X.toString())) {
                     overDiagonal_X++;
                     if (overDiagonal_X == WINNER_VALUE) {
                         ConsoleView.printWinner(Player.getPlayer1());
@@ -102,7 +103,7 @@ class WinnerController {
                         break;
                     }
                 }
-                if (winnerControlField[i][(i -2)*-1].trim().equals(Figure.O.toString())) {
+                if (winnerControlField[j][(j -2)*-1].trim().equals(Figure.O.toString())) {
                     overDiagonal_O++;
                     if (overDiagonal_O == WINNER_VALUE) {
                         ConsoleView.printWinner(Player.getPlayer2());

@@ -6,15 +6,15 @@
  **/
 package controllers;
 
+import controllers.reader.ConsoleReader;
 import model.Board;
 import model.Field;
 import model.Figure;
 import view.ConsoleView;
-import java.util.Scanner;
 
 class MoveController {
 
-    private static Scanner scanner = new Scanner(System.in);
+    private static ConsoleReader consoleReader = new ConsoleReader();
     private static WinnerController winnerController = new WinnerController();
     private static Field field = new Field();
 
@@ -26,29 +26,23 @@ class MoveController {
         ConsoleView.currentPlayerStep(figure);                   // Выводит текущего игрока
         ConsoleView.needToCoordinates();                         // Сообщение о запросе координат от игрока
 
-        char[] userInput = scanner.nextLine().toCharArray();
+        char[] userInput = consoleReader.reader().toCharArray();
 
         int i = Character.getNumericValue(userInput[0]);
         int j = Character.getNumericValue(userInput[1]);
 
 
-        if (fieldFreeOrNot(i, j)) {                               // Проверка свободной ячейки
+        if (MoveController.fieldFreeOrNot(i, j)) {                               // Проверка свободной ячейки
             field.setField(i, j, figure);
             Board.printBoard();
-        } else {
-            ConsoleView.fieldBusye();
-        }
-
-        if (moveCounter < 4) {                                      // Проверка наличая победителя после 3-го хода
-            moveCounter++;
-            CurrentMoveController.switchPlayers();
-        } else {
             winnerController.getWinner();
+        } else {
+            fieldIsBusy();
         }
     }
 
     // Проверяет свободна ли ячейка для установки фигуры
-    private static boolean fieldFreeOrNot(int i, int j){
+    private static boolean fieldFreeOrNot(final int i, final int j){
 
         String[][] controlField = Field.getField();
 
@@ -58,5 +52,12 @@ class MoveController {
         else{
             return false;
         }
+    }
+
+    // Если поле занято, вызываем заново метод setFigureOnField
+    private static void fieldIsBusy(){
+
+        ConsoleView.fieldBusy();
+        setFigureOnField(CurrentMoveController.getCurrentFigure());
     }
 }
