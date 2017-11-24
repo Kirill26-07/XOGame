@@ -35,7 +35,12 @@ class MoveController {
         if (MoveController.fieldFreeOrNot(i, j)) {                               // Проверка свободной ячейки
             field.setField(i, j, figure);
             Board.printBoard();
-            winnerController.getWinner();
+                if(moveCounter < 4){
+                    moveCounter++;
+                    CurrentMoveController.switchPlayers();
+                }else {
+                    winnerController.getWinner();
+                }
         } else {
             fieldIsBusy();
         }
