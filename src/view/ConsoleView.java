@@ -4,7 +4,7 @@ package view;
 
 import model.Player;
 
-public class ConsoleView {
+public class ConsoleView implements IViewer{
 
     // Выводим название игры
     public void printGameName(final String gameName){
@@ -52,4 +52,17 @@ public class ConsoleView {
 
     }
 
+    @Override
+    public void consoleViewer(String text) {
+
+        System.out.println(text);
+
+    }
+
+    @Override
+    public void printStringBuilder(StringBuilder stringBuilder) {
+
+        System.out.println(stringBuilder);
+
+    }
 }
