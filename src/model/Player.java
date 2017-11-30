@@ -3,23 +3,21 @@
 */
 package model;
 
-import controllers.reader.ConsoleReader;
-
 public class Player {
 
     private static String PLAYER_1;
     private static String PLAYER_2;
 
-    private static ConsoleReader consoleReader = new ConsoleReader();
 
-    public static void setPlayer1() {
+    // Создаем игроков
+    public Player(final String player_1){
+        this(player_1, "Computer");
 
-        PLAYER_1 = consoleReader.reader().trim();
     }
+    public Player(final String player_1, final String player_2){
 
-    public static void setPlayer2() {
-
-        PLAYER_2 = consoleReader.reader().trim();
+        PLAYER_1 = player_1;
+        PLAYER_2 = player_2;
     }
 
     // Возвращаем 1 игрока

@@ -17,22 +17,26 @@ class MoveController {
     private static ConsoleReader consoleReader = new ConsoleReader();
     private static WinnerController winnerController = new WinnerController();
     private static Field field = new Field();
+    private static ConsoleView consoleView = new ConsoleView();
 
     private static int moveCounter = 0;
 
     // Принимает поле с координатами и устанавливает в свободную ячейку фигуру
     static void setFigureOnField(final String figure) {
 
-        ConsoleView.currentPlayerStep(figure);                   // Выводит текущего игрока
-        ConsoleView.needToCoordinates();                         // Сообщение о запросе координат от игрока
+        // Выводит текущего игрока
+        consoleView.consoleViewer("Step for player with " + figure + " figure!");
+
+        // Сообщение о запросе координат от игрока
+        consoleView.consoleViewer("Please, input field coordinate, where would you like to set the figure: ");
 
         char[] userInput = consoleReader.reader().toCharArray();
 
         int i = Character.getNumericValue(userInput[0]);
         int j = Character.getNumericValue(userInput[1]);
 
-
-        if (MoveController.fieldFreeOrNot(i, j)) {                               // Проверка свободной ячейки
+        // Проверка свободной ячейки
+        if (MoveController.fieldFreeOrNot(i, j)) {
             field.setField(i, j, figure);
             Board.printBoard();
                 if(moveCounter < 4){
@@ -62,7 +66,7 @@ class MoveController {
     // Если поле занято, вызываем заново метод setFigureOnField
     private static void fieldIsBusy(){
 
-        ConsoleView.fieldBusy();
+        consoleView.consoleViewer("Field with this coordinate was busy, please, set you figure in the other field!");
         setFigureOnField(CurrentMoveController.getCurrentFigure());
     }
 }

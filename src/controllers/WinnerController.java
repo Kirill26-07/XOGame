@@ -46,7 +46,7 @@ class WinnerController {
                 if (winnerControlField[i][j].trim().equals(Figure.X.toString())) {
                     horizontal_X++;
                     if (horizontal_X == WINNER_VALUE) {
-                        ConsoleView.printWinner(Player.getPlayer1());
+                        printWinner(Player.getPlayer1());
                         haveWinner = true;
                         break;
                     }
@@ -54,7 +54,7 @@ class WinnerController {
                 if (winnerControlField[i][j].trim().equals(Figure.O.toString())) {
                     horizontal_O++;
                     if (horizontal_O == WINNER_VALUE) {
-                        ConsoleView.printWinner(Player.getPlayer2());
+                        printWinner(Player.getPlayer2());
                         haveWinner = true;
                         break;
                     }
@@ -64,7 +64,7 @@ class WinnerController {
                 if (winnerControlField[j][i].trim().equals(Figure.X.toString())) {
                     vertical_X++;
                     if (vertical_X == WINNER_VALUE) {
-                        ConsoleView.printWinner(Player.getPlayer1());
+                        printWinner(Player.getPlayer1());
                         haveWinner = true;
                         break;
                     }
@@ -72,7 +72,7 @@ class WinnerController {
                 if (winnerControlField[j][i].trim().equals(Figure.O.toString())) {
                     vertical_O++;
                     if (vertical_O == WINNER_VALUE) {
-                        ConsoleView.printWinner(Player.getPlayer2());
+                        printWinner(Player.getPlayer2());
                         haveWinner = true;
                         break;
                     }
@@ -82,7 +82,7 @@ class WinnerController {
                 if (winnerControlField[j][j].trim().equals(Figure.X.toString())) {
                     diagonal_X++;
                     if (diagonal_X == WINNER_VALUE) {
-                        ConsoleView.printWinner(Player.getPlayer1());
+                        printWinner(Player.getPlayer1());
                         haveWinner = true;
                         break;
                     }
@@ -90,7 +90,7 @@ class WinnerController {
                 if (winnerControlField[j][j].trim().equals(Figure.O.toString())) {
                     diagonal_O++;
                     if (diagonal_O == WINNER_VALUE) {
-                        ConsoleView.printWinner(Player.getPlayer2());
+                        printWinner(Player.getPlayer2());
                         haveWinner = true;
                         break;
                     }
@@ -98,7 +98,7 @@ class WinnerController {
                 if (winnerControlField[j][(j -2)*-1].trim().equals(Figure.X.toString())) {
                     overDiagonal_X++;
                     if (overDiagonal_X == WINNER_VALUE) {
-                        ConsoleView.printWinner(Player.getPlayer1());
+                        printWinner(Player.getPlayer1());
                         haveWinner = true;
                         break;
                     }
@@ -106,7 +106,7 @@ class WinnerController {
                 if (winnerControlField[j][(j -2)*-1].trim().equals(Figure.O.toString())) {
                     overDiagonal_O++;
                     if (overDiagonal_O == WINNER_VALUE) {
-                        ConsoleView.printWinner(Player.getPlayer2());
+                        printWinner(Player.getPlayer2());
                         haveWinner = true;
                         break;
                     }
@@ -118,5 +118,13 @@ class WinnerController {
         if (!haveWinner) {
             CurrentMoveController.switchPlayers();
         }
+    }
+
+    // Выводим победителя
+    private void printWinner(final String winner){
+        ConsoleView consoleView = new ConsoleView();
+
+        consoleView.consoleViewer("Congratulations " + winner + " you are WIN!!!");
+        
     }
 }
