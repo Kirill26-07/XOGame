@@ -4,6 +4,6 @@ public interface IViewer {
 
     void consoleViewer(String text);
 
-    void printStringBuilder(StringBuilder stringBuilder);
+    void consoleViewer(StringBuilder stringBuilder);
 
 }

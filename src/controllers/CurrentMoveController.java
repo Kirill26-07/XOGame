@@ -5,7 +5,7 @@
 package controllers;
 import model.Figure;
 
-class CurrentMoveController {
+public class CurrentMoveController {
 
     private static String currentFigure;     // Первый игрок при запуске игры
 
@@ -22,7 +22,7 @@ class CurrentMoveController {
         }
     }
 
-    public static String getCurrentFigure() {
+    static String getCurrentFigure() {
         return currentFigure;
     }
 

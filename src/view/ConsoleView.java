@@ -12,7 +12,7 @@ public class ConsoleView implements IViewer{
     }
 
     @Override
-    public void printStringBuilder(StringBuilder stringBuilder) {
+    public void consoleViewer(StringBuilder stringBuilder) {
 
         System.out.println(stringBuilder);
 

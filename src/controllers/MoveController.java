@@ -12,7 +12,7 @@ import model.Field;
 import model.Figure;
 import view.ConsoleView;
 
-class MoveController {
+public class MoveController {
 
     private static ConsoleReader consoleReader = new ConsoleReader();
     private static WinnerController winnerController = new WinnerController();
@@ -22,7 +22,7 @@ class MoveController {
     private static int moveCounter = 0;
 
     // Принимает поле с координатами и устанавливает в свободную ячейку фигуру
-    static void setFigureOnField(final String figure) {
+    public static void setFigureOnField(final String figure) {
 
         // Выводит текущего игрока
         consoleView.consoleViewer("Step for player with " + figure + " figure!");
