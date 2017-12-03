@@ -13,6 +13,7 @@ public class Main {
         ConsoleView consoleView = new ConsoleView();
         ConsoleReader consoleReader = new ConsoleReader();
 
+        // Выбор варианта игры - с другим игроком или компьютером
         consoleView.consoleViewer("\nPress 1 to play with friends, press 2 to play with computer!");
         final int youChoise = Integer.parseInt(consoleReader.reader().trim());
 

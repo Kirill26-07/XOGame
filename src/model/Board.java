@@ -7,11 +7,12 @@ import view.ConsoleView;
 
 public class Board {
 
+    private static ConsoleView consoleView = new ConsoleView();
+
     // Принтим доску с фигурками на экран
     public static void printBoard(){
 
         StringBuilder stringBuilder = new StringBuilder();
-        ConsoleView consoleView = new ConsoleView();
 
         String[][] boardForPrint = Field.getField();
 

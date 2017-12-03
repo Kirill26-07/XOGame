@@ -14,6 +14,7 @@ import view.ConsoleView;
 public class Game {
 
     protected static final String GAME_NAME = "XO-GAME";
+    protected static MoveController moveController = new MoveController();
 
     // Первоначальная конфигурация игры
 
@@ -47,11 +48,11 @@ public class Game {
                 .append(Player.getPlayer2()));
     }
 
-    protected void letsPlay() {
+    void letsPlay() {
 
         Field.fieldWithCoordinates();
         Board.printBoard();
         CurrentMoveController.setCurrentFigure(Figure.X.toString());
-        MoveController.setFigureOnField(Figure.X.toString());
+        moveController.setFigureOnField(Figure.X.toString());
     }
 }

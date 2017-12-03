@@ -1,6 +1,10 @@
 package controllers.games;
 
+import controllers.CurrentMoveController;
 import controllers.reader.ConsoleReader;
+import model.Board;
+import model.Field;
+import model.Figure;
 import model.Player;
 
 public class GameWithComputer extends Game{
@@ -20,5 +24,15 @@ public class GameWithComputer extends Game{
                 .append(Player.getPlayer1())
                 .append("\nPlayer 2: ")
                 .append(Player.getPlayer2()));
+
+    }
+
+    @Override
+    void letsPlay(){
+        Field.fieldWithCoordinates();
+        Board.printBoard();
+        CurrentMoveController.setCurrentFigure(Figure.X.toString());
+        CurrentMoveController.setGameWithBoot(true);
+        moveController.setFigureOnField(Figure.X.toString());
     }
 }

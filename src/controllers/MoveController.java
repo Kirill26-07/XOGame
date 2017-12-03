@@ -22,22 +22,16 @@ public class MoveController {
     private static int moveCounter = 0;
 
     // Принимает поле с координатами и устанавливает в свободную ячейку фигуру
-    public static void setFigureOnField(final String figure) {
+    public void setFigureOnField(final String figure) {
 
         // Выводит текущего игрока
         consoleView.consoleViewer("Step for player with " + figure + " figure!");
 
-        // Сообщение о запросе координат от игрока
-        consoleView.consoleViewer("Please, input field coordinate, where would you like to set the figure: ");
-
-        char[] userInput = consoleReader.reader().toCharArray();
-
-        int i = Character.getNumericValue(userInput[0]);
-        int j = Character.getNumericValue(userInput[1]);
+        int[] coordinates = getMoveCoordinates();
 
         // Проверка свободной ячейки
-        if (MoveController.fieldFreeOrNot(i, j)) {
-            field.setField(i, j, figure);
+        if (fieldFreeOrNot(coordinates[0], coordinates[1])) {
+            field.setField(coordinates[0], coordinates[1], figure);
             Board.printBoard();
                 if(moveCounter < 4){
                     moveCounter++;
@@ -51,7 +45,7 @@ public class MoveController {
     }
 
     // Проверяет свободна ли ячейка для установки фигуры
-    private static boolean fieldFreeOrNot(final int i, final int j){
+    boolean fieldFreeOrNot(final int i, final int j){
 
         String[][] controlField = Field.getField();
 
@@ -64,9 +58,24 @@ public class MoveController {
     }
 
     // Если поле занято, вызываем заново метод setFigureOnField
-    private static void fieldIsBusy(){
+    protected void fieldIsBusy(){
 
         consoleView.consoleViewer("Field with this coordinate was busy, please, set you figure in the other field!");
         setFigureOnField(CurrentMoveController.getCurrentFigure());
+    }
+
+    // Получаем координаты
+    int[] getMoveCoordinates(){
+
+        // Сообщение о запросе координат от игрока
+        consoleView.consoleViewer("Please, input field coordinate, where would you like to set the figure: ");
+
+        char[] userInput = consoleReader.reader().toCharArray();
+
+        int[] coordinates = new int[2];
+        coordinates[0] = Character.getNumericValue(userInput[0]);
+        coordinates[1] = Character.getNumericValue(userInput[1]);
+
+        return coordinates;
     }
 }
