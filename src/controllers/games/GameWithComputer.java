@@ -7,7 +7,7 @@ import model.Field;
 import model.Figure;
 import model.Player;
 
-public class GameWithComputer extends Game{
+public class GameWithComputer extends AbstractGame {
 
     @Override
     protected void inputUsersName(){
@@ -29,10 +29,14 @@ public class GameWithComputer extends Game{
 
     @Override
     void letsPlay(){
-        Field.fieldWithCoordinates();
+        Field field = new Field();
+
+        field.fieldWithCoordinates();
         Board.printBoard();
+
         CurrentMoveController.setCurrentFigure(Figure.X.toString());
         CurrentMoveController.setGameWithBoot(true);
+
         moveController.setFigureOnField(Figure.X.toString());
     }
 }

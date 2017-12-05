@@ -40,7 +40,4 @@ public class CurrentMoveController {
         return currentFigure;
     }
 
-    public static boolean isGameWithBoot() {
-        return gameWithBoot;
-    }
 }

@@ -45,7 +45,7 @@ public class MoveController {
     }
 
     // Проверяет свободна ли ячейка для установки фигуры
-    boolean fieldFreeOrNot(final int i, final int j){
+    private boolean fieldFreeOrNot(final int i, final int j){
 
         String[][] controlField = Field.getField();
 
@@ -58,7 +58,7 @@ public class MoveController {
     }
 
     // Если поле занято, вызываем заново метод setFigureOnField
-    protected void fieldIsBusy(){
+    void fieldIsBusy(){
 
         consoleView.consoleViewer("Field with this coordinate was busy, please, set you figure in the other field!");
         setFigureOnField(CurrentMoveController.getCurrentFigure());

@@ -1,36 +1,16 @@
-/** Класс реализует первоначальную конфигурацию игры
- */
-
 package controllers.games;
+
 import controllers.CurrentMoveController;
-import controllers.MoveController;
 import controllers.reader.ConsoleReader;
 import model.Board;
 import model.Field;
 import model.Figure;
 import model.Player;
-import view.ConsoleView;
 
-public class Game {
+public class GameWithPlayer extends AbstractGame {
 
-    protected static final String GAME_NAME = "XO-GAME";
-    protected static MoveController moveController = new MoveController();
-
-    // Первоначальная конфигурация игры
-
-    protected ConsoleView consoleView = new ConsoleView();
-
-    public void startGame() {
-
-        // Выводим название игры
-        consoleView.consoleViewer("Hello! Welcome to our game - " + GAME_NAME);
-
-        inputUsersName();
-        letsPlay();
-    }
-
-    // Принимаем имена пользователей и выводим их на экран
-    protected void inputUsersName() {
+    @Override
+    void inputUsersName() {
         StringBuilder stringBuilder = new StringBuilder();
         ConsoleReader consoleReader = new ConsoleReader();
 
@@ -48,11 +28,15 @@ public class Game {
                 .append(Player.getPlayer2()));
     }
 
+    @Override
     void letsPlay() {
+        Field field = new Field();
 
-        Field.fieldWithCoordinates();
+        field.fieldWithCoordinates();
         Board.printBoard();
+
         CurrentMoveController.setCurrentFigure(Figure.X.toString());
         moveController.setFigureOnField(Figure.X.toString());
     }
+
 }

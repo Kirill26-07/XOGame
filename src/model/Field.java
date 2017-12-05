@@ -11,7 +11,7 @@ public class Field {
     private static String[][] field = new String[3][3];
 
     // Добовляем координаты
-    public static void fieldWithCoordinates(){
+    public void fieldWithCoordinates(){
         Point point = new Point();
         field = point.createCoordinates(field);
     }
@@ -25,6 +25,4 @@ public class Field {
     public void setField(final int i, final int j, final String figure){
         field[i][j] = " " + figure;
     }
-
-
 }

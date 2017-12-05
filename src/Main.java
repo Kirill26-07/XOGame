@@ -1,7 +1,7 @@
 // Start GAME!!!
 
-import controllers.games.Game;
 import controllers.games.GameWithComputer;
+import controllers.games.GameWithPlayer;
 import controllers.reader.ConsoleReader;
 import view.ConsoleView;
 
@@ -20,12 +20,12 @@ public class Main {
         switch(youChoise){
 
             case 1:{
-                Game game = new Game();
-                game.startGame();
+                GameWithPlayer gameWithPlayer = new GameWithPlayer();
+                gameWithPlayer.startGame();
                 break;
             }
             case 2:{
-                Game gameWithComputer = new GameWithComputer();
+                GameWithComputer gameWithComputer = new GameWithComputer();
                 gameWithComputer.startGame();
                 break;
             }
