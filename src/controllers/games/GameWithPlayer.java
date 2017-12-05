@@ -11,7 +11,7 @@ public class GameWithPlayer extends AbstractGame {
 
     @Override
     void inputUsersName() {
-        StringBuilder stringBuilder = new StringBuilder();
+
         ConsoleReader consoleReader = new ConsoleReader();
 
         consoleView.consoleViewer("\nInput first player name - figure 'X': ");
@@ -22,10 +22,6 @@ public class GameWithPlayer extends AbstractGame {
 
         new Player(firstUser, secondUser);
 
-        consoleView.consoleViewer(stringBuilder.append("\nPlayer 1: ")
-                .append(Player.getPlayer1())
-                .append("\nPlayer 2: ")
-                .append(Player.getPlayer2()));
     }
 
     @Override
