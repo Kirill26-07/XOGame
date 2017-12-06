@@ -3,6 +3,7 @@
  */
 
 package controllers;
+import controllers.bot.BotMoveController;
 import model.Figure;
 
 public class CurrentMoveController {

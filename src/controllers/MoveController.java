@@ -58,14 +58,14 @@ public class MoveController {
     }
 
     // Если поле занято, вызываем заново метод setFigureOnField
-    void fieldIsBusy(){
+   private void fieldIsBusy(){
 
         consoleView.consoleViewer("Field with this coordinate was busy, please, set you figure in the other field!");
         setFigureOnField(CurrentMoveController.getCurrentFigure());
     }
 
     // Получаем координаты
-    int[] getMoveCoordinates(){
+    protected int[] getMoveCoordinates(){
 
         // Сообщение о запросе координат от игрока
         consoleView.consoleViewer("Please, input field coordinate, where would you like to set the figure: ");
