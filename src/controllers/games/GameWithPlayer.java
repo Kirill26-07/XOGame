@@ -1,7 +1,6 @@
 package controllers.games;
 
 import controllers.CurrentMoveController;
-import controllers.reader.ConsoleReader;
 import model.Board;
 import model.Field;
 import model.Figure;
@@ -11,8 +10,6 @@ public class GameWithPlayer extends AbstractGame {
 
     @Override
     void inputUsersName() {
-
-        ConsoleReader consoleReader = new ConsoleReader();
 
         consoleView.consoleViewer("\nInput first player name - figure 'X': ");
         String firstUser = consoleReader.reader().trim();

@@ -4,6 +4,7 @@
 
 package controllers.games;
 import controllers.MoveController;
+import controllers.reader.ConsoleReader;
 import view.ConsoleView;
 
 
@@ -12,6 +13,7 @@ abstract class AbstractGame{
     private static final String GAME_NAME = "XO-GAME";
     MoveController moveController = new MoveController();
     ConsoleView consoleView = new ConsoleView();
+    ConsoleReader consoleReader = new ConsoleReader();
 
     // Первоначальная конфигурация игры
     public void startGame() {

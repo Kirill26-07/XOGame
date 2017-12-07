@@ -1,7 +1,6 @@
 package controllers.games;
 
 import controllers.CurrentMoveController;
-import controllers.reader.ConsoleReader;
 import model.Board;
 import model.Field;
 import model.Figure;
@@ -12,7 +11,7 @@ public class GameWithComputer extends AbstractGame {
     @Override
      void inputUsersName(){
 
-        ConsoleReader consoleReader = new ConsoleReader();
+        botLavalSittings();
 
         consoleView.consoleViewer("\nInput first player name - figure 'X': ");
         String firstUser = consoleReader.reader().trim();
@@ -31,5 +30,20 @@ public class GameWithComputer extends AbstractGame {
         CurrentMoveController.setGameWithBoot(true);
 
         moveController.setFigureOnField(Figure.X.toString());
+    }
+
+    private void botLavalSittings(){
+
+        consoleView.consoleViewer("\nIf you wont to play with LOW mode - input LOW.\nIf you wont to play with HARD mode - input HARD.");
+
+        String botLaval = consoleReader.reader();
+
+        if(botLaval.toLowerCase().equals("hard")){
+            consoleView.consoleViewer("\nHARD mode START!");
+            CurrentMoveController.setHardBot(true);
+        }
+        else{
+            consoleView.consoleViewer("\nLOW mode START!");
+        }
     }
 }

@@ -21,7 +21,7 @@ public class BotMoveController extends MoveController {
         return result;
     }
 
-    private int[] getRandomPoint() {
+    int[] getRandomPoint() {
         return new int[] {getRandomInt(), getRandomInt()};
     }
 
