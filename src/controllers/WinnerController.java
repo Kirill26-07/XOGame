@@ -13,9 +13,13 @@ import view.ConsoleView;
 class WinnerController {
 
     private final static int WINNER_VALUE = 3;
+    private final static int MAX_STEPS = 9;
+    private static int steps = 4;
 
     // Проверяем победителя путем проверки полей с фигурками, если победитель найден - выводим, нет - продолжаем
     void getWinner() {
+
+        WinnerController.steps++;
 
         boolean haveWinner = false;
 
@@ -25,6 +29,11 @@ class WinnerController {
         for (int i = 0; i < 3; i++) {
 
             if(haveWinner){
+                break;
+            }
+
+            if((!haveWinner) && steps == MAX_STEPS){
+                System.out.println("Game Over! We have no winners!");
                 break;
             }
 
@@ -115,7 +124,7 @@ class WinnerController {
         }
 
         // Если нет победителя продолжаем
-        if (!haveWinner) {
+        if (!haveWinner && steps != MAX_STEPS) {
             CurrentMoveController.switchPlayers();
         }
     }

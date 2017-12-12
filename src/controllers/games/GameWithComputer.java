@@ -11,7 +11,7 @@ public class GameWithComputer extends AbstractGame {
     @Override
      void inputUsersName(){
 
-        botLavalSittings();
+        botLavalSettings();
 
         consoleView.consoleViewer("\nInput first player name - figure 'X': ");
         String firstUser = consoleReader.reader().trim();
@@ -32,7 +32,7 @@ public class GameWithComputer extends AbstractGame {
         moveController.setFigureOnField(Figure.X.toString());
     }
 
-    private void botLavalSittings(){
+    private void botLavalSettings(){
 
         consoleView.consoleViewer("\nIf you wont to play with LOW mode - input LOW.\nIf you wont to play with HARD mode - input HARD.");
 

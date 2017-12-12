@@ -25,7 +25,9 @@ public class MoveController {
     public void setFigureOnField(final String figure) {
 
         // Выводит текущего игрока
-        consoleView.consoleViewer("Step for player with " + figure + " figure!");
+        if(CurrentMoveController.isHardBot() && CurrentMoveController.getCurrentFigure().equals(Figure.X.toString())) {
+            consoleView.consoleViewer("Step for player with " + figure + " figure!");
+        }
 
         int[] coordinates = getMoveCoordinates();
 
@@ -58,7 +60,7 @@ public class MoveController {
     }
 
     // Если поле занято, вызываем заново метод setFigureOnField
-   private void fieldIsBusy(){
+   protected void fieldIsBusy(){
 
         consoleView.consoleViewer("Field with this coordinate was busy, please, set you figure in the other field!");
         setFigureOnField(CurrentMoveController.getCurrentFigure());

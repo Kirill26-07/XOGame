@@ -1,5 +1,6 @@
 package controllers.bot;
 
+import controllers.CurrentMoveController;
 import controllers.MoveController;
 import model.Field;
 import model.Figure;
@@ -28,4 +29,11 @@ public class BotMoveController extends MoveController {
     private int getRandomInt() {
         return Math.abs(RANDOM.nextInt() % 3);
     }
+
+    @Override
+    protected void fieldIsBusy(){
+
+        setFigureOnField(CurrentMoveController.getCurrentFigure());
+    }
+
 }

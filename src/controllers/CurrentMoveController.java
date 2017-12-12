@@ -45,11 +45,15 @@ public class CurrentMoveController {
         CurrentMoveController.gameWithBoot = gameWithBoot;
     }
 
-    static String getCurrentFigure() {
+    public static String getCurrentFigure() {
         return currentFigure;
     }
 
     public static void setHardBot(boolean hardBot) {
         CurrentMoveController.hardBot = hardBot;
+    }
+
+    static boolean isHardBot() {
+        return hardBot;
     }
 }
