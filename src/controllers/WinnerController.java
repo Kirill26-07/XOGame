@@ -19,8 +19,6 @@ class WinnerController {
     // Проверяем победителя путем проверки полей с фигурками, если победитель найден - выводим, нет - продолжаем
     void getWinner() {
 
-        WinnerController.steps++;
-
         boolean haveWinner = false;
 
         String[][] winnerControlField = Field.getField();
@@ -122,6 +120,8 @@ class WinnerController {
                 }
             }
         }
+
+        WinnerController.steps++;
 
         // Если нет победителя продолжаем
         if (!haveWinner && steps != MAX_STEPS) {

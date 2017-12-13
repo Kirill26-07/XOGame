@@ -34,11 +34,15 @@ public class GameWithComputer extends AbstractGame {
 
     private void botLavalSettings(){
 
-        consoleView.consoleViewer("\nIf you wont to play with LOW mode - input LOW.\nIf you wont to play with HARD mode - input HARD.");
+        consoleView.consoleViewer("\nIf you wont to play with LOW mode - input LOW.\nIf you wont to play with Medium mode - input MD.\nIf you wont to play with Hard mode - input HD:");
 
         String botLaval = consoleReader.reader();
 
-        if(botLaval.toLowerCase().equals("hard")){
+        if(botLaval.toLowerCase().equals("md")){
+            consoleView.consoleViewer("\nMEDIUM mode START!");
+            CurrentMoveController.setMediumBot(true);
+        }
+        else if(botLaval.toLowerCase().equals("hd")){
             consoleView.consoleViewer("\nHARD mode START!");
             CurrentMoveController.setHardBot(true);
         }

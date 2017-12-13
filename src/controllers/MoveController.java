@@ -25,7 +25,9 @@ public class MoveController {
     public void setFigureOnField(final String figure) {
 
         // Выводит текущего игрока
-        if(CurrentMoveController.isHardBot() && CurrentMoveController.getCurrentFigure().equals(Figure.X.toString())) {
+        if((CurrentMoveController.isHardBot() ||  CurrentMoveController.isMediumBot())
+                && CurrentMoveController.getCurrentFigure().equals(Figure.X.toString())) {
+
             consoleView.consoleViewer("Step for player with " + figure + " figure!");
         }
 
