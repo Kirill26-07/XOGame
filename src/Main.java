@@ -17,8 +17,8 @@ public class Main {
 
     private void settings(){
 
-        ConsoleReader consoleReader = new ConsoleReader();
-        ConsoleView consoleView = new ConsoleView();
+        final ConsoleReader consoleReader = new ConsoleReader();
+        final ConsoleView consoleView = new ConsoleView();
 
         // Выбор варианта игры - с другим игроком или компьютером
         consoleView.consoleViewer("\nPress 1 to play with friends, press 2 to play with computer!");

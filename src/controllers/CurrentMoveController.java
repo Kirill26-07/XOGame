@@ -44,11 +44,11 @@ public class CurrentMoveController {
         }
     }
 
-    public static void setCurrentFigure(String currentFigure) {
+    public static void setCurrentFigure(final String currentFigure) {
         CurrentMoveController.currentFigure = currentFigure;
     }
 
-    public static void setGameWithBoot(boolean gameWithBoot) {
+    public static void setGameWithBoot(final boolean gameWithBoot) {
         CurrentMoveController.gameWithBoot = gameWithBoot;
     }
 
@@ -56,11 +56,11 @@ public class CurrentMoveController {
         return currentFigure;
     }
 
-    public static void setHardBot(boolean hardBot) {
+    public static void setHardBot(final boolean hardBot) {
         CurrentMoveController.hardBot = hardBot;
     }
 
-    public static void setMediumBot(boolean mediumBot) {
+    public static void setMediumBot(final boolean mediumBot) {
         CurrentMoveController.mediumBot = mediumBot;
     }
 

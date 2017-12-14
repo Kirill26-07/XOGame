@@ -12,8 +12,10 @@ public class Field {
 
     // Добовляем координаты
     public void fieldWithCoordinates(){
-        PointBuilder pointBuilder = new PointBuilder();
+
+        final Field.PointBuilder pointBuilder = new PointBuilder();
         field = pointBuilder.createCoordinates(field);
+
     }
 
     // Отдаем поле с координатами

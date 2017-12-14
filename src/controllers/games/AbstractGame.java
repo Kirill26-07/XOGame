@@ -3,8 +3,12 @@
  */
 
 package controllers.games;
+import controllers.CurrentMoveController;
 import controllers.MoveController;
 import controllers.reader.ConsoleReader;
+import model.Board;
+import model.Field;
+import model.Figure;
 import view.ConsoleView;
 
 
@@ -27,5 +31,12 @@ abstract class AbstractGame{
     // Принимаем имена пользователей и выводим их на экран
     abstract void inputUsersName();
 
-    abstract void letsPlay();
+    void letsPlay(){
+        Field field = new Field();
+
+        field.fieldWithCoordinates();
+        Board.printBoard();
+        CurrentMoveController.setCurrentFigure(Figure.X.toString());
+    }
+
 }

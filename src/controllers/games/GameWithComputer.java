@@ -21,14 +21,9 @@ public class GameWithComputer extends AbstractGame {
 
     @Override
     void letsPlay(){
-        Field field = new Field();
+        super.letsPlay();
 
-        field.fieldWithCoordinates();
-        Board.printBoard();
-
-        CurrentMoveController.setCurrentFigure(Figure.X.toString());
         CurrentMoveController.setGameWithBoot(true);
-
         moveController.setFigureOnField(Figure.X.toString());
     }
 
@@ -38,16 +33,21 @@ public class GameWithComputer extends AbstractGame {
 
         String botLaval = consoleReader.reader();
 
-        if(botLaval.toLowerCase().equals("md")){
-            consoleView.consoleViewer("\nMEDIUM mode START!");
-            CurrentMoveController.setMediumBot(true);
-        }
-        else if(botLaval.toLowerCase().equals("hd")){
-            consoleView.consoleViewer("\nHARD mode START!");
-            CurrentMoveController.setHardBot(true);
-        }
-        else{
-            consoleView.consoleViewer("\nLOW mode START!");
+        switch (botLaval.toLowerCase()){
+
+            case "md":{
+                consoleView.consoleViewer("\nMEDIUM mode START!");
+                CurrentMoveController.setMediumBot(true);
+                break;
+            }
+            case "hd":{
+                consoleView.consoleViewer("\nHARD mode START!");
+                CurrentMoveController.setHardBot(true);
+                break;
+            }
+            default:
+                consoleView.consoleViewer("\nLOW mode START!");
+                break;
+            }
         }
     }
-}
