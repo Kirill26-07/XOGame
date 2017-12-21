@@ -12,12 +12,13 @@ public class CurrentMoveController {
 
     private static String currentFigure;                    // Первый игрок при запуске игры
     private static boolean gameWithBoot = false;
+    private static boolean lowBot = false;
     private static boolean mediumBot = false;
     private static boolean hardBot = false;
-    private static MoveController moveController = new MoveController();
-    private static BotMoveController botMoveController = new BotMoveController();
-    private static MediumBotMoveController mediumBotMoveController = new MediumBotMoveController();
-    private static HardBotMoveController hardBotMoveController = new HardBotMoveController();
+    private static final MoveController moveController = new MoveController();
+    private static final BotMoveController botMoveController = new BotMoveController();
+    private static final MediumBotMoveController mediumBotMoveController = new MediumBotMoveController();
+    private static final HardBotMoveController hardBotMoveController = new HardBotMoveController();
 
     // Переключение игроков
     static void switchPlayers(){
@@ -64,11 +65,19 @@ public class CurrentMoveController {
         CurrentMoveController.mediumBot = mediumBot;
     }
 
+    public static void setLowBot(boolean lowBot) {
+        CurrentMoveController.lowBot = lowBot;
+    }
+
     static boolean isHardBot() {
         return hardBot;
     }
 
     public static boolean isMediumBot() {
         return mediumBot;
+    }
+
+    public static boolean isLowBot() {
+        return lowBot;
     }
 }

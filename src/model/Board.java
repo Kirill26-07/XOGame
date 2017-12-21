@@ -7,7 +7,7 @@ import view.ConsoleView;
 
 public class Board {
 
-    private static ConsoleView consoleView = new ConsoleView();
+    private static final ConsoleView consoleView = new ConsoleView();
 
     // Принтим доску с фигурками на экран
     public static void printBoard(){

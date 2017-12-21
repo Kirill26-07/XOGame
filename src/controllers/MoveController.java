@@ -14,10 +14,10 @@ import view.ConsoleView;
 
 public class MoveController {
 
-    private static ConsoleReader consoleReader = new ConsoleReader();
-    private static WinnerController winnerController = new WinnerController();
-    private static Field field = new Field();
-    private static ConsoleView consoleView = new ConsoleView();
+    private static final ConsoleReader consoleReader = new ConsoleReader();
+    private static final WinnerController winnerController = new WinnerController();
+    private static final Field field = new Field();
+    private static final ConsoleView consoleView = new ConsoleView();
 
     private static int moveCounter = 0;
 
@@ -25,7 +25,7 @@ public class MoveController {
     public void setFigureOnField(final String figure) {
 
         // Выводит текущего игрока
-        if((CurrentMoveController.isHardBot() ||  CurrentMoveController.isMediumBot())
+        if ((CurrentMoveController.isHardBot() || CurrentMoveController.isMediumBot() || CurrentMoveController.isLowBot())
                 && CurrentMoveController.getCurrentFigure().equals(Figure.X.toString())) {
 
             consoleView.consoleViewer("Step for player with " + figure + " figure!");
@@ -33,32 +33,32 @@ public class MoveController {
 
         int[] coordinates = getMoveCoordinates();
 
-        // Проверка свободной ячейки
-        if (fieldFreeOrNot(coordinates[0], coordinates[1])) {
-            field.setField(coordinates[0], coordinates[1], figure);
-            Board.printBoard();
-                if(moveCounter < 4){
+        // Проверка свободной ячейки (реализованно плохо, лучше избавиться от рекурсии)
+        try {
+            if (fieldFreeOrNot(coordinates[0], coordinates[1])) {
+                field.setField(coordinates[0], coordinates[1], figure);
+                Board.printBoard();
+                if (moveCounter < 4) {
                     moveCounter++;
                     CurrentMoveController.switchPlayers();
-                }else {
+                } else {
                     winnerController.getWinner();
                 }
-        } else {
-            fieldIsBusy();
+            } else {
+                fieldIsBusy();
+            }
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("You input is wrong, please try again!");
+            setFigureOnField(CurrentMoveController.getCurrentFigure());
         }
     }
 
     // Проверяет свободна ли ячейка для установки фигуры
-    private boolean fieldFreeOrNot(final int i, final int j){
+    private boolean fieldFreeOrNot(final int i, final int j) throws ArrayIndexOutOfBoundsException {
 
         String[][] controlField = Field.getField();
 
-        if(!controlField[i][j].trim().equals(Figure.X.toString()) && !controlField[i][j].trim().equals(Figure.O.toString())){
-            return true;
-        }
-        else{
-            return false;
-        }
+        return !controlField[i][j].trim().equals(Figure.X.toString()) && !controlField[i][j].trim().equals(Figure.O.toString());
     }
 
     // Если поле занято, вызываем заново метод setFigureOnField

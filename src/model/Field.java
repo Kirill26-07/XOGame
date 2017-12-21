@@ -13,7 +13,7 @@ public class Field {
     // Добовляем координаты
     public void fieldWithCoordinates(){
 
-        final Field.PointBuilder pointBuilder = new PointBuilder();
+        final PointBuilder pointBuilder = new PointBuilder();
         field = pointBuilder.createCoordinates(field);
 
     }

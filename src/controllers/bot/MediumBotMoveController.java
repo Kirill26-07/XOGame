@@ -9,7 +9,7 @@ public class MediumBotMoveController extends BotMoveController {
 
 
     @Override
-    protected int[] getMoveCoordinates() {
+  final protected int[] getMoveCoordinates() {
 
         int[] botCoordinates = new int[2];
 

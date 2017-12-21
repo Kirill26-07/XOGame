@@ -1,6 +1,6 @@
 package view;
 
-public interface IViewer {
+interface IViewer {
 
     void consoleViewer(String text);
 

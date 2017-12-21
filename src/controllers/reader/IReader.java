@@ -1,6 +1,6 @@
 package controllers.reader;
 
-public interface IReader {
+interface IReader {
 
     String reader();
 

@@ -1,8 +1,6 @@
 package controllers.games;
 
 import controllers.CurrentMoveController;
-import model.Board;
-import model.Field;
 import model.Figure;
 import model.Player;
 
@@ -47,6 +45,7 @@ public class GameWithComputer extends AbstractGame {
             }
             default:
                 consoleView.consoleViewer("\nLOW mode START!");
+                CurrentMoveController.setLowBot(true);
                 break;
             }
         }

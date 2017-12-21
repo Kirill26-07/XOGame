@@ -9,7 +9,7 @@ import java.util.Random;
 // Класс генерирует координаты по которым устанавливается фигура
 public class BotMoveController extends MoveController {
 
-    private Random RANDOM = new Random();
+    private final Random RANDOM = new Random();
     private String[][] field = Field.getField();
 
     // Получаем координаты от компьютера
