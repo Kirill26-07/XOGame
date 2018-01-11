@@ -5,7 +5,7 @@
 package model;
 
 
-public class Field {
+public final class Field<T> {
 
     // Создаем игровое поле
     private static String[][] field = new String[3][3];
@@ -24,7 +24,7 @@ public class Field {
     }
 
     // Устанавливаем фигурку в указанную ячейку
-    public void setField(final int i, final int j, final String figure){
+    public void setField(final int i, final int j, final T figure){
         field[i][j] = " " + figure;
     }
 
