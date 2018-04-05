@@ -11,12 +11,11 @@ public class Board {
 
     // Принтим доску с фигурками на экран
     public static void printBoard(){
-
         StringBuilder stringBuilder = new StringBuilder();
 
         String[][] boardForPrint = Field.getField();
 
-        consoleView.consoleViewer(stringBuilder
+        consoleView.consolePrint(stringBuilder
                 .append("\n").append(" ").append(boardForPrint[0][0])
                 .append(" |").append(" ").append(boardForPrint[0][1])
                 .append(" |").append(" ").append(boardForPrint[0][2])

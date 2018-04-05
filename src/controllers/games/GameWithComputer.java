@@ -6,19 +6,15 @@ import model.Player;
 
 public class GameWithComputer extends AbstractGame {
 
-    @Override
-     void inputUsersName(){
-
-        botLavalSettings();
-
-        consoleView.consoleViewer("\nInput first player name - figure 'X': ");
-        String firstUser = consoleReader.reader().trim();
-
-        new Player(firstUser);
+    public GameWithComputer(Player[] players) {
+        super(players);
     }
+
 
     @Override
     void letsPlay(){
+        botLavalSettings();
+
         super.letsPlay();
 
         CurrentMoveController.setGameWithBoot(true);
@@ -27,24 +23,24 @@ public class GameWithComputer extends AbstractGame {
 
     private void botLavalSettings(){
 
-        consoleView.consoleViewer("\nIf you wont to play with LOW mode - input LOW.\nIf you wont to play with Medium mode - input MD.\nIf you wont to play with Hard mode - input HD:");
+        consoleView.consolePrint("\nIf you wont to play with LOW mode - input LOW.\nIf you wont to play with Medium mode - input MD.\nIf you wont to play with Hard mode - input HD:");
 
         String botLaval = consoleReader.reader();
 
         switch (botLaval.toLowerCase()){
 
             case "md":{
-                consoleView.consoleViewer("\nMEDIUM mode START!");
+                consoleView.consolePrint("\nMEDIUM mode START!");
                 CurrentMoveController.setMediumBot(true);
                 break;
             }
             case "hd":{
-                consoleView.consoleViewer("\nHARD mode START!");
+                consoleView.consolePrint("\nHARD mode START!");
                 CurrentMoveController.setHardBot(true);
                 break;
             }
             default:
-                consoleView.consoleViewer("\nLOW mode START!");
+                consoleView.consolePrint("\nLOW mode START!");
                 CurrentMoveController.setLowBot(true);
                 break;
             }

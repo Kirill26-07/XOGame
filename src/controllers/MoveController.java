@@ -28,7 +28,7 @@ public class MoveController {
         if ((CurrentMoveController.isHardBot() || CurrentMoveController.isMediumBot() || CurrentMoveController.isLowBot())
                 && CurrentMoveController.getCurrentFigure().equals(Figure.X.toString())) {
 
-            consoleView.consoleViewer("Step for player with " + figure + " figure!");
+            consoleView.consolePrint("Step for player with " + figure + " figure!");
         }
 
         int[] coordinates = getMoveCoordinates();
@@ -64,7 +64,7 @@ public class MoveController {
     // Если поле занято, вызываем заново метод setFigureOnField
    protected void fieldIsBusy(){
 
-        consoleView.consoleViewer("Field with this coordinate was busy, please, set you figure in the other field!");
+        consoleView.consolePrint("Field with this coordinate was busy, please, set you figure in the other field!");
         setFigureOnField(CurrentMoveController.getCurrentFigure());
     }
 
@@ -72,7 +72,7 @@ public class MoveController {
     protected int[] getMoveCoordinates(){
 
         // Сообщение о запросе координат от игрока
-        consoleView.consoleViewer("Please, input field coordinate, where would you like to set the figure: ");
+        consoleView.consolePrint("Please, input field coordinate, where would you like to set the figure: ");
 
         char[] userInput = consoleReader.reader().toCharArray();
 

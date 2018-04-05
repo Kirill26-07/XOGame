@@ -9,8 +9,8 @@ import controllers.reader.ConsoleReader;
 import model.Board;
 import model.Field;
 import model.Figure;
+import model.Player;
 import view.ConsoleView;
-
 
 abstract class AbstractGame{
 
@@ -19,17 +19,18 @@ abstract class AbstractGame{
     final ConsoleView consoleView = new ConsoleView();
     final ConsoleReader consoleReader = new ConsoleReader();
 
-    // Первоначальная конфигурация игры
-    public void startGame() {
+    public final Player[] players;
 
-        // Выводим название игры
-        consoleView.consoleViewer("Hello! Welcome to our game - " + GAME_NAME);
-        inputUsersName();
-        letsPlay();
+    protected AbstractGame(Player[] players) {
+        this.players = players;
     }
 
-    // Принимаем имена пользователей и выводим их на экран
-    abstract void inputUsersName();
+    // Первоначальная конфигурация игры
+    public final void startGame() {
+        // Выводим название игры
+        consoleView.consolePrint("Hello! Welcome to our game - " + GAME_NAME);
+        letsPlay();
+    }
 
     void letsPlay(){
         Field field = new Field();
@@ -38,5 +39,4 @@ abstract class AbstractGame{
         Board.printBoard();
         CurrentMoveController.setCurrentFigure(Figure.X.toString());
     }
-
 }

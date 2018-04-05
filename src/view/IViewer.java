@@ -2,8 +2,8 @@ package view;
 
 interface IViewer {
 
-    void consoleViewer(String text);
+    void consolePrint(String text);
 
-    void consoleViewer(StringBuilder stringBuilder);
+    void consolePrint(StringBuilder stringBuilder);
 
 }

@@ -1,9 +1,7 @@
 /**
  * Создает и хранит игровое поле с координатами и установленными фигурками
  */
-
 package model;
-
 
 public final class Field {
 
@@ -12,7 +10,6 @@ public final class Field {
 
     // Добовляем координаты
     public void fieldWithCoordinates(){
-
         final PointBuilder pointBuilder = new PointBuilder();
         field = pointBuilder.createCoordinates(field);
 
@@ -28,13 +25,11 @@ public final class Field {
         field[i][j] = " " + figure;
     }
 
-class PointBuilder {
+private class PointBuilder {
+
         // Заполняем поле точками координат
-
-        String[][] createCoordinates(final String[][] field){
-
+       private String[][] createCoordinates(final String[][] field){
             for(int i = 0; i < field.length; i ++){
-
                 for(int j = 0; j < field.length; j++){
 
                     field[i][j] = Integer.toString(i) + Integer.toString(j);

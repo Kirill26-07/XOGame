@@ -2,19 +2,17 @@
  */
 package view;
 
-public class ConsoleView implements IViewer{
+public class ConsoleView implements IViewer {
 
     @Override
-    public void consoleViewer(String text) {
+    public final void consolePrint(final String text) {
 
         System.out.println(text);
-
     }
 
     @Override
-    public void consoleViewer(StringBuilder stringBuilder) {
+    public final void consolePrint(final StringBuilder stringBuilder) {
 
         System.out.println(stringBuilder);
-
     }
 }
