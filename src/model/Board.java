@@ -10,7 +10,7 @@ public class Board {
     private static final ConsoleView consoleView = new ConsoleView();
 
     // Принтим доску с фигурками на экран
-    public static void printBoard(){
+    public static void printBoard() {
         StringBuilder stringBuilder = new StringBuilder();
 
         String[][] boardForPrint = Field.getField();

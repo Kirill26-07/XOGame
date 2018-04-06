@@ -15,7 +15,6 @@ import view.ConsoleView;
 public class MoveController {
 
     private static final ConsoleReader consoleReader = new ConsoleReader();
-    private static final WinnerController winnerController = new WinnerController();
     private static final Field field = new Field();
     private static final ConsoleView consoleView = new ConsoleView();
 
@@ -42,7 +41,7 @@ public class MoveController {
                     moveCounter++;
                     CurrentMoveController.switchPlayers();
                 } else {
-                    winnerController.getWinner();
+                    Settings.winnerController.getWinner();
                 }
             } else {
                 fieldIsBusy();
@@ -72,7 +71,7 @@ public class MoveController {
     protected int[] getMoveCoordinates(){
 
         // Сообщение о запросе координат от игрока
-        consoleView.consolePrint("Please, input field coordinate, where would you like to set the figure: ");
+        consoleView.consolePrint("\nPlease, input field coordinate, where would you like to set the figure: ");
 
         char[] userInput = consoleReader.reader().toCharArray();
 

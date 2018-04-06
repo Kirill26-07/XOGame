@@ -19,16 +19,16 @@ abstract class AbstractGame{
     final ConsoleView consoleView = new ConsoleView();
     final ConsoleReader consoleReader = new ConsoleReader();
 
-    public final Player[] players;
+    final Player[] players;
 
-    protected AbstractGame(Player[] players) {
+    protected AbstractGame(final Player[] players) {
         this.players = players;
     }
 
     // Первоначальная конфигурация игры
     public final void startGame() {
         // Выводим название игры
-        consoleView.consolePrint("Hello! Welcome to our game - " + GAME_NAME);
+        consoleView.consolePrint("\nHello! Welcome to our game - " + GAME_NAME);
         letsPlay();
     }
 

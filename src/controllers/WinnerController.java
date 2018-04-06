@@ -16,10 +16,9 @@ class WinnerController {
     private static int steps = 4;
 
     private boolean haveWinner = false;
-
     private Player[] players;
 
-    public void setPlayers(Player[] players) {
+    public void setPlayers(final Player[] players) {
         this.players = players;
     }
 

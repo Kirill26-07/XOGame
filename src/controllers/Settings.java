@@ -10,7 +10,7 @@ public class Settings {
 
     private final ConsoleReader consoleReader = new ConsoleReader();
     private final ConsoleView consoleView = new ConsoleView();
-    private WinnerController winnerController = new WinnerController();
+    public static final WinnerController winnerController = new WinnerController();
 
     public void userSettings(){
 
@@ -38,7 +38,7 @@ public class Settings {
         }
     }
 
-    private Player[] createUsers(boolean withComputer) {
+    private Player[] createUsers(final boolean withComputer) {
 
         String firstUser;
         String secondUser;
@@ -61,7 +61,17 @@ public class Settings {
                 new Player(firstUser),
                 new Player(secondUser)
         };
+
+        printUsersName(players);
         winnerController.setPlayers(players);
         return players;
+    }
+
+    private void printUsersName(final Player[] players){
+        StringBuilder sb = new StringBuilder().append("\nFirst player - ")
+                                                .append(players[0].getPlayerName())
+                                                .append("\nSecond player - ")
+                                                .append(players[1].getPlayerName());
+        consoleView.consolePrint(sb);
     }
 }

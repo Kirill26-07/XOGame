@@ -5,7 +5,7 @@ import model.Player;
 
 public class GameWithPlayer extends AbstractGame {
 
-    public GameWithPlayer(Player[] players) {
+    public GameWithPlayer(final Player[] players) {
         super(players);
     }
 
