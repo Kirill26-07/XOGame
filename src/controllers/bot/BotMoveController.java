@@ -31,8 +31,7 @@ public class BotMoveController extends MoveController {
     }
 
     @Override
-    protected void fieldIsBusy(){
-
+    protected void fieldIsBusy() {
         setFigureOnField(CurrentMoveController.getCurrentFigure());
     }
 

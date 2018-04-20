@@ -21,25 +21,21 @@ public class CurrentMoveController {
     private static final HardBotMoveController hardBotMoveController = new HardBotMoveController();
 
     // Переключение игроков
-    static void switchPlayers(){
+    static void switchPlayers() {
 
-        if(currentFigure.equals(Figure.X.toString()) && !gameWithBoot){
+        if (currentFigure.equals(Figure.X.toString()) && !gameWithBoot) {
             currentFigure = Figure.O.toString();
             moveController.setFigureOnField(Figure.O.toString());
-        }
-        else if(currentFigure.equals(Figure.X.toString()) && gameWithBoot && !hardBot){
+        } else if (currentFigure.equals(Figure.X.toString()) && gameWithBoot && !hardBot) {
             currentFigure = Figure.O.toString();
             botMoveController.setFigureOnField(Figure.O.toString());
-        }
-        else if(currentFigure.equals(Figure.X.toString()) && gameWithBoot && mediumBot) {
+        } else if (currentFigure.equals(Figure.X.toString()) && gameWithBoot && mediumBot) {
             currentFigure = Figure.O.toString();
             mediumBotMoveController.setFigureOnField(Figure.O.toString());
-        }
-        else if(currentFigure.equals(Figure.X.toString()) && gameWithBoot && hardBot){
+        } else if (currentFigure.equals(Figure.X.toString()) && gameWithBoot && hardBot) {
             currentFigure = Figure.O.toString();
             hardBotMoveController.setFigureOnField(Figure.O.toString());
-        }
-        else{
+        } else {
             currentFigure = Figure.X.toString();
             moveController.setFigureOnField(Figure.X.toString());
         }
@@ -65,7 +61,7 @@ public class CurrentMoveController {
         CurrentMoveController.mediumBot = mediumBot;
     }
 
-    public static void setLowBot(boolean lowBot) {
+    public static void setLowBot(final boolean lowBot) {
         CurrentMoveController.lowBot = lowBot;
     }
 

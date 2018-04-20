@@ -9,10 +9,9 @@ public final class Field {
     private static String[][] field = new String[3][3];
 
     // Добовляем координаты
-    public void fieldWithCoordinates(){
+    public void fieldWithCoordinates() {
         final PointBuilder pointBuilder = new PointBuilder();
         field = pointBuilder.createCoordinates(field);
-
     }
 
     // Отдаем поле с координатами
@@ -26,11 +25,10 @@ public final class Field {
     }
 
 private class PointBuilder {
-
         // Заполняем поле точками координат
-       private String[][] createCoordinates(final String[][] field){
-            for(int i = 0; i < field.length; i ++){
-                for(int j = 0; j < field.length; j++){
+       private String[][] createCoordinates(final String[][] field) {
+            for (int i = 0; i < field.length; i ++) {
+                for (int j = 0; j < field.length; j++) {
 
                     field[i][j] = Integer.toString(i) + Integer.toString(j);
                 }

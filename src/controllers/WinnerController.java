@@ -24,17 +24,15 @@ class WinnerController {
 
     // Проверяем победителя путем проверки полей с фигурками, если победитель найден - выводим, нет - продолжаем
     void getWinner() {
-
         String[][] winnerControlField = Field.getField();
 
         // Проверка победителя по горизонтали и вертикали
         for (int i = 0; i < 3; i++) {
-
             if(haveWinner){
                 break;
             }
 
-            if((!haveWinner) && steps == MAX_STEPS){
+            if ((!haveWinner) && steps == MAX_STEPS) {
                 System.out.println("Game Over! We have no winners!");
                 break;
             }
@@ -52,7 +50,6 @@ class WinnerController {
             int overDiagonal_O = 0;
 
             for (int j = 0; j < 3; j++) {
-
                 // По горизонтали
                 if (winnerControlField[i][j].trim().equals(Figure.X.toString())) {
                     horizontal_X++;
@@ -70,7 +67,6 @@ class WinnerController {
                         break;
                     }
                 }
-
                 // По вертикали
                 if (winnerControlField[j][i].trim().equals(Figure.X.toString())) {
                     vertical_X++;
@@ -88,7 +84,6 @@ class WinnerController {
                         break;
                     }
                 }
-
                 // Проверяем диоганали
                 if (winnerControlField[j][j].trim().equals(Figure.X.toString())) {
                     diagonal_X++;
@@ -126,18 +121,14 @@ class WinnerController {
         }
 
         WinnerController.steps++;
-
         // Если нет победителя продолжаем
         if (!haveWinner && steps != MAX_STEPS) {
             CurrentMoveController.switchPlayers();
         }
     }
-
     // Выводим победителя
-    private void printWinner(final String winner){
+    private void printWinner(final String winner) {
         ConsoleView consoleView = new ConsoleView();
-
         consoleView.consolePrint("Congratulations " + winner + " you are WIN!!!");
-        
     }
 }

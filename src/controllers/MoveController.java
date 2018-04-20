@@ -22,7 +22,6 @@ public class MoveController {
 
     // Принимает поле с координатами и устанавливает в свободную ячейку фигуру
     public void setFigureOnField(final String figure) {
-
         // Выводит текущего игрока
         if ((CurrentMoveController.isHardBot() || CurrentMoveController.isMediumBot() || CurrentMoveController.isLowBot())
                 && CurrentMoveController.getCurrentFigure().equals(Figure.X.toString())) {
@@ -31,7 +30,6 @@ public class MoveController {
         }
 
         int[] coordinates = getMoveCoordinates();
-
         // Проверка свободной ячейки (реализованно плохо, лучше избавиться от рекурсии)
         try {
             if (fieldFreeOrNot(coordinates[0], coordinates[1])) {
@@ -46,7 +44,7 @@ public class MoveController {
             } else {
                 fieldIsBusy();
             }
-        }catch (ArrayIndexOutOfBoundsException e){
+        } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("You input is wrong, please try again!");
             setFigureOnField(CurrentMoveController.getCurrentFigure());
         }
@@ -54,22 +52,18 @@ public class MoveController {
 
     // Проверяет свободна ли ячейка для установки фигуры
     private boolean fieldFreeOrNot(final int i, final int j) throws ArrayIndexOutOfBoundsException {
-
         String[][] controlField = Field.getField();
-
         return !controlField[i][j].trim().equals(Figure.X.toString()) && !controlField[i][j].trim().equals(Figure.O.toString());
     }
 
     // Если поле занято, вызываем заново метод setFigureOnField
-   protected void fieldIsBusy(){
-
+   protected void fieldIsBusy() {
         consoleView.consolePrint("Field with this coordinate was busy, please, set you figure in the other field!");
         setFigureOnField(CurrentMoveController.getCurrentFigure());
     }
 
     // Получаем координаты
-    protected int[] getMoveCoordinates(){
-
+    protected int[] getMoveCoordinates() {
         // Сообщение о запросе координат от игрока
         consoleView.consolePrint("\nPlease, input field coordinate, where would you like to set the figure: ");
 

@@ -32,7 +32,7 @@ abstract class AbstractGame{
         letsPlay();
     }
 
-    void letsPlay(){
+    void letsPlay() {
         Field field = new Field();
 
         field.fieldWithCoordinates();
