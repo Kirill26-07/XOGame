@@ -4,7 +4,6 @@
  */
 package controllers;
 
-import model.Field;
 import model.Figure;
 import model.Player;
 import view.ConsoleView;
@@ -18,13 +17,13 @@ class WinnerController {
     private boolean haveWinner = false;
     private Player[] players;
 
-    public void setPlayers(final Player[] players) {
+    void setPlayers(final Player[] players) {
         this.players = players;
     }
 
     // Проверяем победителя путем проверки полей с фигурками, если победитель найден - выводим, нет - продолжаем
     void getWinner() {
-        String[][] winnerControlField = Field.getField();
+        String[][] winnerControlField = MoveController.field.getField();
 
         // Проверка победителя по горизонтали и вертикали
         for (int i = 0; i < 3; i++) {

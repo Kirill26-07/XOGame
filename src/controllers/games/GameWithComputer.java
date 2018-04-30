@@ -10,7 +10,6 @@ public class GameWithComputer extends AbstractGame {
         super(players);
     }
 
-
     @Override
     void letsPlay() {
         botLavalSettings();

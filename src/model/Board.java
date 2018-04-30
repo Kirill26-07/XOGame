@@ -3,6 +3,7 @@
  */
 package model;
 
+import controllers.MoveController;
 import view.ConsoleView;
 
 public class Board {
@@ -13,7 +14,7 @@ public class Board {
     public static void printBoard() {
         StringBuilder stringBuilder = new StringBuilder();
 
-        String[][] boardForPrint = Field.getField();
+        String[][] boardForPrint = MoveController.field.getField();
 
         consoleView.consolePrint(stringBuilder
                 .append("\n").append(" ").append(boardForPrint[0][0])

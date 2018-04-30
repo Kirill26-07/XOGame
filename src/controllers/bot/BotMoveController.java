@@ -2,7 +2,6 @@ package controllers.bot;
 
 import controllers.CurrentMoveController;
 import controllers.MoveController;
-import model.Field;
 import model.Figure;
 import java.util.Random;
 
@@ -10,7 +9,7 @@ import java.util.Random;
 public class BotMoveController extends MoveController {
 
     private final Random RANDOM = new Random();
-    private String[][] field = Field.getField();
+    private String[][] field = MoveController.field.getField();
 
     // Получаем координаты от компьютера
     @Override

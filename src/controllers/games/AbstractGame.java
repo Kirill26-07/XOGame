@@ -21,7 +21,7 @@ abstract class AbstractGame{
 
     final Player[] players;
 
-    protected AbstractGame(final Player[] players) {
+    AbstractGame(final Player[] players) {
         this.players = players;
     }
 
@@ -33,9 +33,7 @@ abstract class AbstractGame{
     }
 
     void letsPlay() {
-        Field field = new Field();
-
-        field.fieldWithCoordinates();
+        MoveController.field = new Field(new String[3][3]);
         Board.printBoard();
         CurrentMoveController.setCurrentFigure(Figure.X.toString());
     }

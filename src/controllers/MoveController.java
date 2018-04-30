@@ -15,7 +15,7 @@ import view.ConsoleView;
 public class MoveController {
 
     private static final ConsoleReader consoleReader = new ConsoleReader();
-    private static final Field field = new Field();
+    public static Field field;
     private static final ConsoleView consoleView = new ConsoleView();
 
     private static int moveCounter = 0;
@@ -27,12 +27,15 @@ public class MoveController {
                 && CurrentMoveController.getCurrentFigure().equals(Figure.X.toString())) {
 
             consoleView.consolePrint("Step for player with " + figure + " figure!");
+        } else {
+            consoleView.consolePrint("Step for player with " + figure + " figure!");
         }
 
         int[] coordinates = getMoveCoordinates();
         // Проверка свободной ячейки (реализованно плохо, лучше избавиться от рекурсии)
         try {
             if (fieldFreeOrNot(coordinates[0], coordinates[1])) {
+                field = new Field(field.getField());
                 field.setField(coordinates[0], coordinates[1], figure);
                 Board.printBoard();
                 if (moveCounter < 4) {
@@ -52,7 +55,7 @@ public class MoveController {
 
     // Проверяет свободна ли ячейка для установки фигуры
     private boolean fieldFreeOrNot(final int i, final int j) throws ArrayIndexOutOfBoundsException {
-        String[][] controlField = Field.getField();
+        String[][] controlField = field.getField();
         return !controlField[i][j].trim().equals(Figure.X.toString()) && !controlField[i][j].trim().equals(Figure.O.toString());
     }
 

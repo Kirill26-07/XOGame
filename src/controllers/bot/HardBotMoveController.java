@@ -1,5 +1,6 @@
 package controllers.bot;
 
+import controllers.MoveController;
 import model.Field;
 import model.Figure;
 
@@ -9,7 +10,7 @@ public class HardBotMoveController extends BotMoveController{
     protected int[] getMoveCoordinates() {
         int[] botCoordinates = new int[2];
 
-        String[][] field = Field.getField();
+        String[][] field = MoveController.field.getField();
 
         // Step one
         if (!field[1][1].trim().equals(Figure.X.toString()) && !(field[1][1].trim().equals(Figure.O.toString()))) {

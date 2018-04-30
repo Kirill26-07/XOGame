@@ -6,21 +6,24 @@ package model;
 public final class Field {
 
     // Создаем игровое поле
-    private static String[][] field = new String[3][3];
+    private final String[][] field;
 
-    // Добовляем координаты
-    public void fieldWithCoordinates() {
-        final PointBuilder pointBuilder = new PointBuilder();
-        field = pointBuilder.createCoordinates(field);
+    public Field(String[][] newField) {
+        if (newField[0][0] == null) {
+            final PointBuilder pointBuilder = new PointBuilder();
+            field = pointBuilder.createCoordinates(newField);
+        } else {
+            field = newField;
+        }
     }
 
     // Отдаем поле с координатами
-    public static String[][] getField() {
+    public String[][] getField() {
         return field;
     }
 
     // Устанавливаем фигурку в указанную ячейку
-    public void setField(final int i, final int j, final String figure){
+    public void setField(final int i, final int j, final String figure) {
         field[i][j] = " " + figure;
     }
 
