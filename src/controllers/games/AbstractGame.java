@@ -1,8 +1,7 @@
-
 /** Класс реализует первоначальную конфигурацию игры
  */
-
 package controllers.games;
+
 import controllers.CurrentMoveController;
 import controllers.MoveController;
 import controllers.reader.ConsoleReader;

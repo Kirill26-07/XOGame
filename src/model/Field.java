@@ -3,12 +3,14 @@
  */
 package model;
 
-public final class Field {
+import java.io.Serializable;
+
+public final class Field implements Serializable {
 
     // Создаем игровое поле
     private final String[][] field;
 
-    public Field(String[][] newField) {
+    public Field(final String[][] newField) {
         if (newField[0][0] == null) {
             final PointBuilder pointBuilder = new PointBuilder();
             field = pointBuilder.createCoordinates(newField);
@@ -27,7 +29,7 @@ public final class Field {
         field[i][j] = " " + figure;
     }
 
-private class PointBuilder {
+    private class PointBuilder {
         // Заполняем поле точками координат
        private String[][] createCoordinates(final String[][] field) {
             for (int i = 0; i < field.length; i ++) {

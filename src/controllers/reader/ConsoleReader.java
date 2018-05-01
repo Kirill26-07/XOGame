@@ -7,6 +7,6 @@ public class ConsoleReader implements IReader{
 
     @Override
     public String reader() {
-        return scanner.nextLine();
+        return scanner.nextLine().trim();
     }
 }

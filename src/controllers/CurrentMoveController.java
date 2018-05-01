@@ -8,6 +8,8 @@ import controllers.bot.HardBotMoveController;
 import controllers.bot.MediumBotMoveController;
 import model.Figure;
 
+import java.io.Serializable;
+
 public class CurrentMoveController {
 
     private static String currentFigure;                    // Первый игрок при запуске игры
