@@ -10,6 +10,9 @@ import model.Field;
 import model.Figure;
 import model.Player;
 import view.ConsoleView;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 abstract class AbstractGame{
 
@@ -32,7 +35,18 @@ abstract class AbstractGame{
     }
 
     void letsPlay() {
-        MoveController.field = new Field(new String[3][3]);
+        try {
+            final FileInputStream fileInputStream = new FileInputStream("XOSave");
+            final ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+            MoveController.field = (Field) objectInputStream.readObject();
+            objectInputStream.close();
+            startNewGame();
+        } catch (ClassNotFoundException | IOException e) {
+            MoveController.field = new Field(new String[3][3]);
+        }
+    }
+
+    private void startNewGame() {
         Board.printBoard();
         CurrentMoveController.setCurrentFigure(Figure.X.toString());
     }
